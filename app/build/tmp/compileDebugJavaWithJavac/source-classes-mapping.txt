@@ -1,0 +1,30 @@
+com/example/studycalendar/StudentActivityDatabase.java
+ com.example.studycalendar.StudentActivityDatabase
+com/example/studycalendar/StudentActivity.java
+ com.example.studycalendar.StudentActivity
+com/example/studycalendar/StudentActivityDao.java
+ com.example.studycalendar.StudentActivityDao
+com/example/studycalendar/BuildConfig.java
+ com.example.studycalendar.BuildConfig
+com/example/studycalendar/MainActivity.java
+ com.example.studycalendar.MainActivity
+ com.example.studycalendar.MainActivity$1
+ com.example.studycalendar.MainActivity$2
+com/example/studycalendar/RecycleViewAdapter.java
+ com.example.studycalendar.RecycleViewAdapter
+ com.example.studycalendar.RecycleViewAdapter$1
+ com.example.studycalendar.RecycleViewAdapter$2
+ com.example.studycalendar.RecycleViewAdapter$3
+ com.example.studycalendar.RecycleViewAdapter$ItemClickListener
+ com.example.studycalendar.RecycleViewAdapter$ViewHolder
+com/example/studycalendar/DetailedTaskActivity.java
+ com.example.studycalendar.DetailedTaskActivity
+ com.example.studycalendar.DetailedTaskActivity$1
+com/example/studycalendar/EditTaskActivity.java
+ com.example.studycalendar.EditTaskActivity
+ com.example.studycalendar.EditTaskActivity$1
+ com.example.studycalendar.EditTaskActivity$2
+com/example/studycalendar/AddTestActivity.java
+ com.example.studycalendar.AddTestActivity
+ com.example.studycalendar.AddTestActivity$1
+ com.example.studycalendar.AddTestActivity$2
