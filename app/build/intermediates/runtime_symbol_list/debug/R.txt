@@ -722,6 +722,7 @@ int attr navigationMode 0x7f030296
 int attr navigationRailStyle 0x7f030297
 int attr navigationViewStyle 0x7f030298
 int attr nestedScrollFlags 0x7f030299
+int attr nestedScrollViewStyle 0x7f0303df
 int attr nestedScrollable 0x7f03029a
 int attr number 0x7f03029b
 int attr numericModifiers 0x7f03029c
@@ -779,6 +780,7 @@ int attr quantizeMotionPhase 0x7f0302cf
 int attr quantizeMotionSteps 0x7f0302d0
 int attr queryBackground 0x7f0302d1
 int attr queryHint 0x7f0302d2
+int attr queryPatterns 0x7f0303e0
 int attr radioButtonStyle 0x7f0302d3
 int attr rangeFillColor 0x7f0302d4
 int attr ratingBarStyle 0x7f0302d5
@@ -817,6 +819,7 @@ int attr shapeAppearanceLargeComponent 0x7f0302f5
 int attr shapeAppearanceMediumComponent 0x7f0302f6
 int attr shapeAppearanceOverlay 0x7f0302f7
 int attr shapeAppearanceSmallComponent 0x7f0302f8
+int attr shortcutMatchRequired 0x7f0303e1
 int attr showAnimationBehavior 0x7f0302f9
 int attr showAsAction 0x7f0302fa
 int attr showDelay 0x7f0302fb
@@ -1090,6 +1093,7 @@ int color bright_foreground_inverse_material_dark 0x7f050024
 int color bright_foreground_inverse_material_light 0x7f050025
 int color bright_foreground_material_dark 0x7f050026
 int color bright_foreground_material_light 0x7f050027
+int color brownishOrange 0x7f0500d5
 int color button_material_dark 0x7f050028
 int color button_material_light 0x7f050029
 int color cardview_dark_background 0x7f05002a
@@ -1232,6 +1236,7 @@ int color mtrl_textinput_focused_box_stroke_color 0x7f0500b2
 int color mtrl_textinput_hovered_box_stroke_color 0x7f0500b3
 int color notification_action_color_filter 0x7f0500b4
 int color notification_icon_bg_color 0x7f0500b5
+int color orange 0x7f0500d6
 int color primary_dark_material_dark 0x7f0500b6
 int color primary_dark_material_light 0x7f0500b7
 int color primary_material_dark 0x7f0500b8
@@ -1244,6 +1249,7 @@ int color purple_200 0x7f0500be
 int color purple_500 0x7f0500bf
 int color purple_700 0x7f0500c0
 int color radiobutton_themeable_attribute_color 0x7f0500c1
+int color red 0x7f0500d7
 int color ripple_material_dark 0x7f0500c2
 int color ripple_material_light 0x7f0500c3
 int color secondary_text_default_material_dark 0x7f0500c4
@@ -2511,6 +2517,7 @@ int string app_name 0x7f0e001b
 int string appbar_scrolling_view_behavior 0x7f0e001c
 int string bottom_sheet_behavior 0x7f0e001d
 int string bottomsheet_action_expand_halfway 0x7f0e001e
+int string channel_name 0x7f0e006c
 int string character_counter_content_description 0x7f0e001f
 int string character_counter_overflowed_content_description 0x7f0e0020
 int string character_counter_pattern 0x7f0e0021
@@ -3617,6 +3624,9 @@ int styleable BottomSheetBehavior_Layout_shapeAppearance 16
 int styleable BottomSheetBehavior_Layout_shapeAppearanceOverlay 17
 int[] styleable ButtonBarLayout { 0x7f03002b }
 int styleable ButtonBarLayout_allowStacking 0
+int[] styleable Capability { 0x7f0303e0, 0x7f0303e1 }
+int styleable Capability_queryPatterns 0
+int styleable Capability_shortcutMatchRequired 1
 int[] styleable CardView { 0x0101013f, 0x01010140, 0x7f03007f, 0x7f030080, 0x7f030081, 0x7f030083, 0x7f030084, 0x7f030085, 0x7f0300f1, 0x7f0300f2, 0x7f0300f4, 0x7f0300f5, 0x7f0300f7 }
 int styleable CardView_android_minWidth 0
 int styleable CardView_android_minHeight 1

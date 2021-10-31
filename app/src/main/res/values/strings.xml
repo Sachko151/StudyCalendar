@@ -3,4 +3,5 @@
     <string name="name">Name</string>
     <string name="desc">Desc</string>
     <string name="date">Date</string>
+    <string name="channel_name">151</string>
 </resources>

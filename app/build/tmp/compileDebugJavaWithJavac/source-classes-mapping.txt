@@ -1,9 +1,9 @@
-com/example/studycalendar/StudentActivityDatabase.java
- com.example.studycalendar.StudentActivityDatabase
-com/example/studycalendar/StudentActivity.java
- com.example.studycalendar.StudentActivity
-com/example/studycalendar/StudentActivityDao.java
- com.example.studycalendar.StudentActivityDao
+com/example/studycalendar/database/StudentActivity.java
+ com.example.studycalendar.database.StudentActivity
+com/example/studycalendar/database/StudentActivityDao.java
+ com.example.studycalendar.database.StudentActivityDao
+com/example/studycalendar/database/StudentActivityDatabase.java
+ com.example.studycalendar.database.StudentActivityDatabase
 com/example/studycalendar/BuildConfig.java
  com.example.studycalendar.BuildConfig
 com/example/studycalendar/MainActivity.java

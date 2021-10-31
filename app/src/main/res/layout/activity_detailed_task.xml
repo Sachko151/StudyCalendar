@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#4CAF50"
+    android:background="#FFFF"
     tools:context=".DetailedTaskActivity">
 
 
@@ -13,35 +13,35 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
         android:text="Detailed Task" />
 
     <TextView
         android:id="@+id/tvDetailedTaskName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
         android:text="Task Name:" />
 
     <TextView
         android:id="@+id/tvDetailedTaskDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
         android:text="Task Description:" />
 
     <TextView
         android:id="@+id/tvDetaTaskDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
         android:text="Task Date:" />
 
     <TextView
         android:id="@+id/tvTaskType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
         android:text="Task Type:" />
 
     <Button

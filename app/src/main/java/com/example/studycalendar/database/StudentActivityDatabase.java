@@ -1,4 +1,4 @@
-package com.example.studycalendar;
+package com.example.studycalendar.database;
 
 import android.content.Context;
 

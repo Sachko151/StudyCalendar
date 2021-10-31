@@ -4,7 +4,7 @@
             "outputFile": "/home/sachko/AndroidStudioProjects/StudyCalendar/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-uz/values-uz.xml",
             "map": [
                 {
-                    "source": "/home/sachko/.gradle/caches/transforms-3/255d63c0f9f8f5d12ab3191ffb377750/transformed/core-1.5.0/res/values-uz/values-uz.xml",
+                    "source": "/home/sachko/.gradle/caches/transforms-3/77368fcbe74f28065fdfe7b340d83da3/transformed/core-1.6.0/res/values-uz/values-uz.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

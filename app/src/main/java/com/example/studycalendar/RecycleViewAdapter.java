@@ -3,27 +3,23 @@ package com.example.studycalendar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.studycalendar.R;
+import com.example.studycalendar.database.StudentActivityDatabase;
 
 import java.util.List;
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.ViewHolder> {
-    private List<String> taskNames;
-    private List<String> taskDescription;
-    private List<String> taskDate;
-    private LayoutInflater mInflater;
+    private final List<String> taskNames;
+    private final List<String> taskDescription;
+    private final List<String> taskDate;
+    private final LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
 
@@ -54,10 +50,10 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         String taskName = taskNames.get(position);
-        String taskDesc = taskDescription.get(position);
+        String taskType = taskDescription.get(position);
         String taskDate1 = taskDate.get(position);
         holder.nameTextView.setText(taskName);
-        holder.descTextView.setText(taskDesc);
+        holder.taskTypeTextView.setText(taskType);
         holder.dateTextView.setText(taskDate1);
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +98,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView nameTextView;
-        TextView descTextView;
+        TextView taskTypeTextView;
         TextView dateTextView;
         Button btnEdit;
         Button btnDelete;
@@ -111,7 +107,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         ViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.tvSubjectName);
-            descTextView = itemView.findViewById(R.id.tvTaskDescription);
+            taskTypeTextView = itemView.findViewById(R.id.tvTaskDescription);
             dateTextView = itemView.findViewById(R.id.tvTaskDueDate);
             btnEdit = itemView.findViewById(R.id.btnEditTask);
             btnDelete = itemView.findViewById(R.id.btnDeleteTask);
