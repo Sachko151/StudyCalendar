@@ -11,11 +11,11 @@
 9-->/home/sachko/AndroidStudioProjects/StudyCalendar/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->/home/sachko/AndroidStudioProjects/StudyCalendar/app/src/main/AndroidManifest.xml:5:5-30:19
+11-->/home/sachko/AndroidStudioProjects/StudyCalendar/app/src/main/AndroidManifest.xml:5:5-31:19
 12        android:allowBackup="true"
 12-->/home/sachko/AndroidStudioProjects/StudyCalendar/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.5.0] /home/sachko/.gradle/caches/transforms-3/255d63c0f9f8f5d12ab3191ffb377750/transformed/core-1.5.0/AndroidManifest.xml:24:18-86
+13-->[androidx.core:core:1.6.0] /home/sachko/.gradle/caches/transforms-3/77368fcbe74f28065fdfe7b340d83da3/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
 14        android:debuggable="true"
 15        android:icon="@mipmap/ic_launcher"
 15-->/home/sachko/AndroidStudioProjects/StudyCalendar/app/src/main/AndroidManifest.xml:7:9-43
@@ -64,14 +64,18 @@
 37            </intent-filter>
 38        </activity>
 39
-40        <service
-40-->[androidx.room:room-runtime:2.3.0] /home/sachko/.gradle/caches/transforms-3/fc3ee38893ecce690557577efa472614/transformed/room-runtime-2.3.0/AndroidManifest.xml:25:9-28:40
-41            android:name="androidx.room.MultiInstanceInvalidationService"
-41-->[androidx.room:room-runtime:2.3.0] /home/sachko/.gradle/caches/transforms-3/fc3ee38893ecce690557577efa472614/transformed/room-runtime-2.3.0/AndroidManifest.xml:26:13-74
-42            android:directBootAware="true"
-42-->[androidx.room:room-runtime:2.3.0] /home/sachko/.gradle/caches/transforms-3/fc3ee38893ecce690557577efa472614/transformed/room-runtime-2.3.0/AndroidManifest.xml:27:13-43
-43            android:exported="false" />
-43-->[androidx.room:room-runtime:2.3.0] /home/sachko/.gradle/caches/transforms-3/fc3ee38893ecce690557577efa472614/transformed/room-runtime-2.3.0/AndroidManifest.xml:28:13-37
-44    </application>
-45
-46</manifest>
+40        <receiver android:name="com.example.studycalendar.AlarmBroadcastReceiver" />
+40-->/home/sachko/AndroidStudioProjects/StudyCalendar/app/src/main/AndroidManifest.xml:30:9-59
+40-->/home/sachko/AndroidStudioProjects/StudyCalendar/app/src/main/AndroidManifest.xml:30:19-57
+41
+42        <service
+42-->[androidx.room:room-runtime:2.3.0] /home/sachko/.gradle/caches/transforms-3/fc3ee38893ecce690557577efa472614/transformed/room-runtime-2.3.0/AndroidManifest.xml:25:9-28:40
+43            android:name="androidx.room.MultiInstanceInvalidationService"
+43-->[androidx.room:room-runtime:2.3.0] /home/sachko/.gradle/caches/transforms-3/fc3ee38893ecce690557577efa472614/transformed/room-runtime-2.3.0/AndroidManifest.xml:26:13-74
+44            android:directBootAware="true"
+44-->[androidx.room:room-runtime:2.3.0] /home/sachko/.gradle/caches/transforms-3/fc3ee38893ecce690557577efa472614/transformed/room-runtime-2.3.0/AndroidManifest.xml:27:13-43
+45            android:exported="false" />
+45-->[androidx.room:room-runtime:2.3.0] /home/sachko/.gradle/caches/transforms-3/fc3ee38893ecce690557577efa472614/transformed/room-runtime-2.3.0/AndroidManifest.xml:28:13-37
+46    </application>
+47
+48</manifest>

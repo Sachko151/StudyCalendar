@@ -1,15 +1,5 @@
 com/example/studycalendar/database/StudentActivity.java
  com.example.studycalendar.database.StudentActivity
-com/example/studycalendar/database/StudentActivityDao.java
- com.example.studycalendar.database.StudentActivityDao
-com/example/studycalendar/database/StudentActivityDatabase.java
- com.example.studycalendar.database.StudentActivityDatabase
-com/example/studycalendar/BuildConfig.java
- com.example.studycalendar.BuildConfig
-com/example/studycalendar/MainActivity.java
- com.example.studycalendar.MainActivity
- com.example.studycalendar.MainActivity$1
- com.example.studycalendar.MainActivity$2
 com/example/studycalendar/RecycleViewAdapter.java
  com.example.studycalendar.RecycleViewAdapter
  com.example.studycalendar.RecycleViewAdapter$1
@@ -17,6 +7,12 @@ com/example/studycalendar/RecycleViewAdapter.java
  com.example.studycalendar.RecycleViewAdapter$3
  com.example.studycalendar.RecycleViewAdapter$ItemClickListener
  com.example.studycalendar.RecycleViewAdapter$ViewHolder
+com/example/studycalendar/database/StudentActivityDatabase.java
+ com.example.studycalendar.database.StudentActivityDatabase
+com/example/studycalendar/AlarmBroadcastReceiver.java
+ com.example.studycalendar.AlarmBroadcastReceiver
+com/example/studycalendar/BuildConfig.java
+ com.example.studycalendar.BuildConfig
 com/example/studycalendar/DetailedTaskActivity.java
  com.example.studycalendar.DetailedTaskActivity
  com.example.studycalendar.DetailedTaskActivity$1
@@ -24,6 +20,12 @@ com/example/studycalendar/EditTaskActivity.java
  com.example.studycalendar.EditTaskActivity
  com.example.studycalendar.EditTaskActivity$1
  com.example.studycalendar.EditTaskActivity$2
+com/example/studycalendar/database/StudentActivityDao.java
+ com.example.studycalendar.database.StudentActivityDao
+com/example/studycalendar/MainActivity.java
+ com.example.studycalendar.MainActivity
+ com.example.studycalendar.MainActivity$1
+ com.example.studycalendar.MainActivity$2
 com/example/studycalendar/AddTestActivity.java
  com.example.studycalendar.AddTestActivity
  com.example.studycalendar.AddTestActivity$1

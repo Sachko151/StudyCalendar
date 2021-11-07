@@ -1,11 +1,14 @@
 package com.example.studycalendar;
 
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -20,6 +23,7 @@ import androidx.core.app.NotificationManagerCompat;
 import com.example.studycalendar.database.StudentActivity;
 import com.example.studycalendar.database.StudentActivityDatabase;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class AddTestActivity extends AppCompatActivity {
@@ -41,6 +45,9 @@ public class AddTestActivity extends AppCompatActivity {
                 date1.setYear(i);
                 date1.setMonth(i1);
                 date1.setDate(i2);
+                date1.setHours(23);
+                date1.setMinutes(0);
+                date1.setSeconds(0);
             }
         });
         final Switch switchIsTest = findViewById(R.id.swAddIsTest);
@@ -61,6 +68,8 @@ public class AddTestActivity extends AppCompatActivity {
         StudentActivity task = new StudentActivity(name, desc,
                 isTest ? "Test" : "Homework", date1.toString().substring(0, 10), date1.toString());
         AsyncTask.execute(() -> db.activityDao().insertActivity(task));
+        createNotificationChannel();
+        setNotificationForFutureTime(date1);
         notifyOfTheCreatedTask(task);
         Intent i = new Intent(AddTestActivity.this, MainActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -76,16 +85,13 @@ public class AddTestActivity extends AppCompatActivity {
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 
-        createNotificationChannel();
         notificationManager.notify(151, builder.build());
     }
 
     private void createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = getString(R.string.channel_name);
-            String description = "sadasdsadsasda";
+            String description = "DescriptionChannelForStudyCalendar";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel(getString(R.string.channel_name), name, importance);
             channel.setDescription(description);
@@ -93,5 +99,15 @@ public class AddTestActivity extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
         }
     }
+    public void setNotificationForFutureTime(Date date){
+        Intent i = new Intent(getApplicationContext(),AlarmBroadcastReceiver.class);
+        PendingIntent pending = PendingIntent.getBroadcast(getApplicationContext(),0,i,0);
+        AlarmManager  alarm = (AlarmManager) getSystemService(ALARM_SERVICE);
+        long timeAtClick = System.currentTimeMillis();
+        long twelve_hours = 1000 * (60 * 60) * 12;
+
+        alarm.set(AlarmManager.RTC_WAKEUP, date.getTime() - twelve_hours, pending);
+    }
+
 
 }

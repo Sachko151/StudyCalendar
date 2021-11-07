@@ -43,6 +43,7 @@ public class EditTaskActivity extends AppCompatActivity {
         final Switch switchIsTest = findViewById(R.id.swEditAddIsTest);
         Button btnAction = findViewById(R.id.btnEditAddTask);
         StudentActivityDatabase db = StudentActivityDatabase.getInstance(this);
+        setEditTextsPreviousInfo(taskName, taskDesc, db);
         btnAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +68,12 @@ public class EditTaskActivity extends AppCompatActivity {
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         recreate();
+    }
+    private void setEditTextsPreviousInfo(EditText taskName, EditText taskDesc,StudentActivityDatabase db){
+        AsyncTask.execute(() -> taskName.setText(db.activityDao().getActivityList()
+                .get(getIntent().getExtras().getInt("id")).getSubjectName()));
+        AsyncTask.execute(() -> taskDesc.setText(db.activityDao().getActivityList()
+                .get(getIntent().getExtras().getInt("id")).getDescription()));
     }
 
     private void notifyOfTheUpdatedTask(StudentActivity task) {
