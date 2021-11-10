@@ -8,22 +8,21 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.example.studycalendar.database.StudentActivity;
-import com.example.studycalendar.database.StudentActivityDatabase;
+import com.example.studycalendar.database.StudentTask;
+import com.example.studycalendar.database.StudentTaskDatabase;
 
-import java.util.Calendar;
 import java.util.Date;
 
 public class AddTestActivity extends AppCompatActivity {
@@ -42,16 +41,16 @@ public class AddTestActivity extends AppCompatActivity {
         taskDueDate.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
-                date1.setYear(i);
+                date1.setYear(i - 1900);
                 date1.setMonth(i1);
                 date1.setDate(i2);
-                date1.setHours(23);
+                date1.setHours(1);
                 date1.setMinutes(0);
                 date1.setSeconds(0);
             }
         });
         final Switch switchIsTest = findViewById(R.id.swAddIsTest);
-        StudentActivityDatabase db = StudentActivityDatabase.getInstance(this);
+        StudentTaskDatabase db = StudentTaskDatabase.getInstance(this);
         actionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,12 +60,13 @@ public class AddTestActivity extends AppCompatActivity {
     }
 
     public void ButtonAddTaskClick(EditText taskName, EditText taskDesc, CalendarView taskDueDate,
-                                   Date date1, StudentActivityDatabase db, Switch switchIsTest) {
+                                   Date date1, StudentTaskDatabase db, Switch switchIsTest) {
         String name = taskName.getText().toString();
         String desc = taskDesc.getText().toString();
         boolean isTest = switchIsTest.isChecked();
-        StudentActivity task = new StudentActivity(name, desc,
-                isTest ? "Test" : "Homework", date1.toString().substring(0, 10), date1.toString());
+        StudentTask task = new StudentTask(name, desc,
+                isTest ? "Test" : "Homework", date1.getTime(),
+                new Date(date1.getTime() + (1000 * (60 * 60) * 12)).getTime()); //toString().substring(0, 10)
         AsyncTask.execute(() -> db.activityDao().insertActivity(task));
         createNotificationChannel();
         setNotificationForFutureTime(date1);
@@ -77,7 +77,7 @@ public class AddTestActivity extends AppCompatActivity {
         recreate();
     }
 
-    private void notifyOfTheCreatedTask(StudentActivity task) {
+    private void notifyOfTheCreatedTask(StudentTask task) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "151")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("New Task Added")
@@ -99,14 +99,13 @@ public class AddTestActivity extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
         }
     }
-    public void setNotificationForFutureTime(Date date){
-        Intent i = new Intent(getApplicationContext(),AlarmBroadcastReceiver.class);
-        PendingIntent pending = PendingIntent.getBroadcast(getApplicationContext(),0,i,0);
-        AlarmManager  alarm = (AlarmManager) getSystemService(ALARM_SERVICE);
-        long timeAtClick = System.currentTimeMillis();
-        long twelve_hours = 1000 * (60 * 60) * 12;
 
-        alarm.set(AlarmManager.RTC_WAKEUP, date.getTime() - twelve_hours, pending);
+    public void setNotificationForFutureTime(Date date) {
+        Intent i = new Intent(getApplicationContext(), AlarmBroadcastReceiver.class);
+        PendingIntent pending = PendingIntent.getBroadcast(getApplicationContext(), 0, i, 0);
+        AlarmManager alarm = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        alarm.set(AlarmManager.RTC_WAKEUP, new Date(date.getTime() - (1000 * (60 * 60) * 12)).getTime(), pending);
     }
 
 

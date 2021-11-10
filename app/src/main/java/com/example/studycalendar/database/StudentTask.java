@@ -6,7 +6,7 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "studentactivity")
-public class StudentActivity {
+public class StudentTask {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @ColumnInfo(name = "subjectName")
@@ -16,9 +16,9 @@ public class StudentActivity {
     @ColumnInfo(name = "exerciseType")
     private String exerciseType;
     @ColumnInfo(name = "dueDate")
-    private String dueDate;
+    private long dueDate;
     @ColumnInfo(name = "expiryDate")
-    private String expiryDate;
+    private long expiryDate;
 
     public int getId() {
         return id;
@@ -44,15 +44,15 @@ public class StudentActivity {
         this.exerciseType = exerciseType;
     }
 
-    public String getDueDate() {
+    public long getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(String dueDate) {
+    public void setDueDate(long dueDate) {
         this.dueDate = dueDate;
     }
 
-    public String getExpiryDate() {
+    public long getExpiryDate() {
         return expiryDate;
     }
 
@@ -64,11 +64,11 @@ public class StudentActivity {
         this.description = description;
     }
 
-    public void setExpiryDate(String expiryDate) {
+    public void setExpiryDate(long expiryDate) {
         this.expiryDate = expiryDate;
     }
 
-    public void setNewInstance(StudentActivity task) {
+    public void setNewInstance(StudentTask task) {
         this.id = task.getId();
         this.subjectName = task.getSubjectName();
         this.description = task.getDescription();
@@ -78,7 +78,7 @@ public class StudentActivity {
     }
 
 
-    public StudentActivity(int id, String subjectName, String description, String exerciseType, String dueDate, String expiryDate) {
+    public StudentTask(int id, String subjectName, String description, String exerciseType, long dueDate, long expiryDate) {
         this.id = id;
         this.subjectName = subjectName;
         this.description = description;
@@ -88,7 +88,7 @@ public class StudentActivity {
     }
 
     @Ignore
-    public StudentActivity(String subjectName, String description, String exerciseType, String dueDate, String expiryDate) {
+    public StudentTask(String subjectName, String description, String exerciseType, long dueDate, long expiryDate) {
         this.subjectName = subjectName;
         this.description = description;
         this.exerciseType = exerciseType;

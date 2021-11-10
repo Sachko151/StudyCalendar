@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.studycalendar.database.StudentActivityDatabase;
+import com.example.studycalendar.database.StudentTaskDatabase;
+
+import java.util.Date;
 
 public class DetailedTaskActivity extends AppCompatActivity {
 
@@ -18,7 +20,7 @@ public class DetailedTaskActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_task);
-        StudentActivityDatabase db = StudentActivityDatabase.getInstance(this);
+        StudentTaskDatabase db = StudentTaskDatabase.getInstance(this);
         TextView detailedName = findViewById(R.id.tvDetailedTaskName);
         TextView detailedDesc = findViewById(R.id.tvDetailedTaskDescription);
         TextView detailedType = findViewById(R.id.tvTaskType);
@@ -31,8 +33,8 @@ public class DetailedTaskActivity extends AppCompatActivity {
                                 .getInt("id")).getDescription(),
                         db.activityDao().getActivityList().get(getIntent().getExtras()
                                 .getInt("id")).getExerciseType(),
-                        db.activityDao().getActivityList().get(getIntent().getExtras()
-                                .getInt("id")).getDueDate()
+                        new Date(db.activityDao().getActivityList().get(getIntent().getExtras()
+                                .getInt("id")).getDueDate()).toString().substring(0, 10)
                 )
         );
         Button goBack = findViewById(R.id.btnDetailedTaskGoBack);

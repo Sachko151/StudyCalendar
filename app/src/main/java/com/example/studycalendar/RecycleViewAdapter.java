@@ -2,7 +2,9 @@ package com.example.studycalendar;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.studycalendar.database.StudentActivityDatabase;
+import com.example.studycalendar.database.StudentTaskDatabase;
 
 import java.util.List;
 
@@ -45,7 +47,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         context = recyclerView.getContext();
     }
 
-    StudentActivityDatabase db = StudentActivityDatabase.getInstance(context);
+    StudentTaskDatabase db = StudentTaskDatabase.getInstance(context);
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
@@ -112,6 +114,9 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             btnEdit = itemView.findViewById(R.id.btnEditTask);
             btnDelete = itemView.findViewById(R.id.btnDeleteTask);
             btnInfo = itemView.findViewById(R.id.btnInfo);
+
+          //  itemView.setBackgroundColor(Color.rgb(255, 0, 0));
+
         }
 
         @Override

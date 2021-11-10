@@ -9,16 +9,16 @@ import androidx.room.Update;
 import java.util.List;
 
 @Dao
-public interface StudentActivityDao {
+public interface StudentTaskDao {
     @Query("Select * from studentactivity")
-    List<StudentActivity> getActivityList();
+    List<StudentTask> getActivityList();
 
     @Insert
-    void insertActivity(StudentActivity activity);
+    void insertActivity(StudentTask activity);
 
     @Update
-    void updateActivity(StudentActivity activity);
+    void updateActivity(StudentTask activity);
 
     @Delete
-    void deleteActivity(StudentActivity activity);
+    void deleteActivity(StudentTask activity);
 }

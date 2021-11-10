@@ -17,8 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.example.studycalendar.database.StudentActivity;
-import com.example.studycalendar.database.StudentActivityDatabase;
+import com.example.studycalendar.database.StudentTask;
+import com.example.studycalendar.database.StudentTaskDatabase;
 
 import java.util.Date;
 
@@ -42,7 +42,7 @@ public class EditTaskActivity extends AppCompatActivity {
         });
         final Switch switchIsTest = findViewById(R.id.swEditAddIsTest);
         Button btnAction = findViewById(R.id.btnEditAddTask);
-        StudentActivityDatabase db = StudentActivityDatabase.getInstance(this);
+        StudentTaskDatabase db = StudentTaskDatabase.getInstance(this);
         setEditTextsPreviousInfo(taskName, taskDesc, db);
         btnAction.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,15 +53,15 @@ public class EditTaskActivity extends AppCompatActivity {
     }
 
     public void onButtonEditTaskClick(EditText taskName, EditText taskDesc, CalendarView taskDueDate,
-                                      Date date1, Switch switchIsTest, StudentActivityDatabase db) {
+                                      Date date1, Switch switchIsTest, StudentTaskDatabase db) {
         String name = taskName.getText().toString();
         String desc = taskDesc.getText().toString();
         boolean isTest = switchIsTest.isChecked();
 
         AsyncTask.execute(() -> db.activityDao().deleteActivity(db.activityDao().getActivityList()
                 .get(getIntent().getExtras().getInt("id"))));
-        StudentActivity task = new StudentActivity(name, desc, isTest ? "Test" : "Homework",
-                date1.toString().substring(0, 10), date1.toString());
+        StudentTask task = new StudentTask(name, desc, isTest ? "Test" : "Homework",
+                date1.getTime(), new Date(date1.getTime() + (1000 * (60 * 60) * 12)).getTime());
         AsyncTask.execute(() -> db.activityDao().insertActivity(task));
         notifyOfTheUpdatedTask(task);
         Intent i = new Intent(EditTaskActivity.this, MainActivity.class);
@@ -69,14 +69,15 @@ public class EditTaskActivity extends AppCompatActivity {
         startActivity(i);
         recreate();
     }
-    private void setEditTextsPreviousInfo(EditText taskName, EditText taskDesc,StudentActivityDatabase db){
+
+    private void setEditTextsPreviousInfo(EditText taskName, EditText taskDesc, StudentTaskDatabase db) {
         AsyncTask.execute(() -> taskName.setText(db.activityDao().getActivityList()
                 .get(getIntent().getExtras().getInt("id")).getSubjectName()));
         AsyncTask.execute(() -> taskDesc.setText(db.activityDao().getActivityList()
                 .get(getIntent().getExtras().getInt("id")).getDescription()));
     }
 
-    private void notifyOfTheUpdatedTask(StudentActivity task) {
+    private void notifyOfTheUpdatedTask(StudentTask task) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "151")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Task Updated")
